@@ -1,5 +1,7 @@
 # 🏆 Rinha de Backend 2025
 
+https://github.com/GuiAnacleto/rinha-backend-2025
+
 Este projeto é uma implementação para a Rinha de Backend 2025, um desafio de alta performance para desenvolvedores. 🚀
 
 ## 🛠️ Tecnologias Utilizadas
