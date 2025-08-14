@@ -2,9 +2,7 @@ version: "3.8"
 
 services:
   app1:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     networks:
       - backend
       - payment-processor
@@ -12,7 +10,6 @@ services:
       - PAYMENT_PROCESSOR_URL_DEFAULT=http://payment-processor-default:8080/payments
       - PAYMENT_PROCESSOR_URL_FALLBACK=http://payment-processor-fallback:8080/payments
       - UVICORN_WORKERS=4
-      - MAX_CONCURRENT_WORKERS=150
     deploy:
       resources:
         limits:
@@ -20,9 +17,7 @@ services:
           memory: "300MB"
 
   app2:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     networks:
       - backend
       - payment-processor
@@ -30,7 +25,6 @@ services:
       - PAYMENT_PROCESSOR_URL_DEFAULT=http://payment-processor-default:8080/payments
       - PAYMENT_PROCESSOR_URL_FALLBACK=http://payment-processor-fallback:8080/payments
       - UVICORN_WORKERS=4
-      - MAX_CONCURRENT_WORKERS=150
     deploy:
       resources:
         limits:

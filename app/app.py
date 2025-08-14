@@ -9,10 +9,10 @@ from datetime import datetime, timezone, timedelta
 from typing import Optional
 
 # Configurações de endpoints
-CHEAP_ENDPOINT = os.getenv("CHEAP_ENDPOINT", "http://localhost:8001/payments")
-CHEAP_ENDPOINT_HEALTHCHECK = os.getenv("CHEAP_ENDPOINT_HEALTHCHECK", "http://localhost:8001/payments/service-health")
-EXPENSIVE_ENDPOINT = os.getenv("EXPENSIVE_ENDPOINT", "http://localhost:8002/payments")
-EXPENSIVE_ENDPOINT_HEALTHCHECK = os.getenv("EXPENSIVE_ENDPOINT_HEALTHCHECK", "http://localhost:8002/payments/service-health")
+CHEAP_ENDPOINT = os.getenv("PAYMENT_PROCESSOR_URL_DEFAULT", "http://localhost:8001/payments")
+CHEAP_ENDPOINT_HEALTHCHECK = os.getenv("CHEAP_ENDPOINT_HEALTHCHECK", f"{CHEAP_ENDPOINT}/service-health")
+EXPENSIVE_ENDPOINT = os.getenv("PAYMENT_PROCESSOR_URL_FALLBACK", "http://localhost:8002/payments")
+EXPENSIVE_ENDPOINT_HEALTHCHECK = os.getenv("EXPENSIVE_ENDPOINT_HEALTHCHECK", f"{EXPENSIVE_ENDPOINT}/service-health")
 
 # Variáveis globais
 PAYMENT_ENDPOINT = None
