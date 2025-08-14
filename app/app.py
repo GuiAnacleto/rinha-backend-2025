@@ -15,7 +15,7 @@ EXPENSIVE_ENDPOINT = os.getenv("PAYMENT_PROCESSOR_URL_FALLBACK", "http://localho
 EXPENSIVE_ENDPOINT_HEALTHCHECK = os.getenv("EXPENSIVE_ENDPOINT_HEALTHCHECK", f"{EXPENSIVE_ENDPOINT}/service-health")
 
 # Variáveis globais
-PAYMENT_ENDPOINT = None
+PAYMENT_ENDPOINT = CHEAP_ENDPOINT
 
 # Armazena apenas (timestamp_utc, amount) para cada tipo de endpoint
 processed_payments = {
@@ -141,7 +141,7 @@ class Lifespan:
         if scope["type"] == "lifespan" and not self.tasks_started:
             self.tasks_started = True
             asyncio.create_task(set_endpoint_loop())
-            asyncio.create_task(start_workers(num_workers=50))
+            asyncio.create_task(start_workers(num_workers=1000))
             logging.info("Background tasks started")
         await self.app(scope, receive, send)
 

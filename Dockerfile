@@ -14,8 +14,5 @@ RUN pip install --no-cache-dir -r requirements.txt || true
 # Copia todos os arquivos do projeto para o container
 COPY . .
 
-# Expõe a porta 8080 (opcional)
-EXPOSE 8080
-
 # Executa o script principal
-CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "app.app:app", "--host", "0.0.0.0", "--port", "9999"]
