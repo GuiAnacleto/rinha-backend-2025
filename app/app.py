@@ -6,9 +6,8 @@ import asyncio
 import aiohttp
 import bisect
 from dataclasses import dataclass
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from typing import Optional, List, Tuple
-from functools import lru_cache
 import threading
 
 # Configurações de endpoints
